@@ -1,0 +1,209 @@
+const express = require('express');
+const path = require('path');
+const connectDB = require('./config/database');
+const adminRoutes = require('./routes/adminRoutes');
+const blogRoutes = require('./routes/blogRoutes');
+const formRoutes = require('./routes/formRoutes');
+const cookieParser = require('cookie-parser');
+
+
+const blogController = require('./controllers/blogController');
+const formController = require('./controllers/formController');
+const auth = require('./middleware/auth');
+const Blog = require('./models/Blog');
+
+const app = express();
+
+
+// Connect to database
+connectDB();
+
+// Set up EJS
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Middleware
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routes
+app.use('/api/admin', adminRoutes);
+app.use('/api/blogs', blogRoutes);
+app.use('/api/form', formRoutes);
+
+// Add a route for your main page
+app.get('/', (req, res) => {
+  res.render('frontend/index');
+});
+
+app.get('/about', (req, res) => {
+  res.render('frontend/about');
+});
+
+app.get('/services', (req, res) => {
+  res.render('frontend/services');
+});
+app.get('/faq', (req, res) => {
+  res.render('frontend/faq.ejs');
+});
+app.get('/enquiry-success', (req, res) => {
+  res.render('frontend/enquiry-status.ejs');
+});
+
+// SERVICES DETAILS
+app.get('/services/amani-childbirth-education', (req, res) => {
+  res.render('frontend/amani-childbirth-education.ejs');
+});
+
+app.get('/services/labour-preparation', (req, res) => {
+  res.render('frontend/labour-preparation.ejs');
+});
+app.get('/services/VBAC-preparation', (req, res) => {
+  res.render('frontend/VBAC-preparation.ejs');
+});
+app.get('/services/doula-labour-assistance', (req, res) => {
+  res.render('frontend/doula-labour-assistance.ejs');
+});
+
+
+app.get('/contact', (req, res) => {
+  res.render('frontend/contact');
+});
+
+app.get('/enquiry', (req, res) => {
+  res.render('frontend/enquiry');
+});
+
+app.get('/blog', async (req, res) => {
+  try {
+    // Fetch the featured blog and the list of other blogs
+    const { featured, list } = await blogController.getAllBlogs();
+
+
+
+    // Render the EJS template with the featured blog and list
+    res.render('frontend/blog', {
+      title: "Our Blog",
+      featured, // Pass the featured blog separately
+      blogs: list // Pass the rest as the list of blogs
+    });
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    res.status(500).render('error', { message: 'Error fetching blogs' });
+  }
+});
+
+app.get('/blog/:id', async (req, res) => {
+  try {
+    const blogId = req.params.id;
+
+    // Fetch the blog by ID using the updated controller method
+    const blog = await blogController.getBlogById(blogId);
+    const {list } = await blogController.getAllBlogs();
+
+    // If the blog is not found, return a 404 error
+    if (!blog) {
+      return res.status(404).render('error', { message: 'Blog not found' });
+    }
+
+    // Render the EJS template with the specific blog
+    res.render('frontend/blog-details', {
+      blog: blog,
+      blogs: list,
+
+    });
+  } catch (error) {
+    res.status(500).render('error', { message: 'Error fetching blog' });
+  }
+});
+
+
+
+
+// ADMIN PANEL
+app.get('/admin/login', (req, res) => {
+  res.render('admin/login');
+});
+
+app.get('/dashboard',auth, async (req, res) => {
+  try {
+    // Fetch the featured blog and the list of other blogs
+    const { list } = await blogController.getAllBlogs();
+    const appointments = await formController.getForm();
+    console.log(list);
+
+    res.render('admin/index', {
+      blogs: list,
+      appointments : appointments
+    });
+
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    res.status(500).render('error', { message: 'Error fetching blogs' });
+  }
+  // res.render('admin/index');
+});
+app.get('/add-blog',auth, (req, res) => {
+  res.render('admin/add-blog');
+});
+
+app.get('/blog/edit/:id', auth, async (req, res) => {
+  try {
+    const blogId = req.params.id;
+    console.log('Blog ID:', blogId);
+    const blog = await Blog.findById(blogId); // Fetch the blog by ID
+
+    if (!blog) {
+      // If no blog is found, send a 404 response
+      return res.status(404).json({ message: 'Blog not found' });
+    }
+
+    // Render the edit page and pass the blog data
+    res.render('admin/edit-blog', { blog });
+  } catch (error) {
+    console.error('Error fetching blog:', error);
+    res.status(500).json({ message: 'Error fetching blog' });
+  }
+});
+
+
+
+
+app.get('/manage-blog',auth, async (req, res) => {
+  try {
+    // Fetch the featured blog and the list of other blogs
+    const { list, featured } = await blogController.getAllBlogs();
+    const includeFeatured = [featured, ...list]; 
+    console.log(includeFeatured);
+
+    res.render('admin/manage-blog', {
+      blogs: includeFeatured
+    });
+
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    res.status(500).render('error', { message: 'Error fetching blogs' });
+  }
+});
+
+app.get('/appointments',auth, async (req, res) => {
+  try {
+    // Fetch the featured blog and the list of other blogs
+    const appointments = await formController.getForm();
+
+    res.render('admin/view-appointments', {
+      appointments
+    });
+
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    res.status(500).render('error', { message: 'Error fetching blogs' });
+  }
+});
+
+
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

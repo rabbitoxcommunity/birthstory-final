@@ -1,0 +1,226 @@
+<%- include('partials/header') %>
+
+    <main id="main">
+
+        <section class="birthStory__mainBanner sm-banner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-tab-10">
+                        <div class="innerPage__contents" data-aos="fade-up">
+                            <h1>Better care is just a few steps away</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ======= Story Section ======= -->
+        <section class="birthStory__enquiry sectionPad pt-0">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div>
+                            <form class="row" id="contactForm">
+                                <div class="col-md-6">
+                                    <label for="firstName">First name <span>*</span></label>
+                                    <input type="text" class="form-control" id="firstName" name="firstName">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName">Last name <span>*</span></label>
+                                    <input type="text" class="form-control" id="lastName" name="lastName">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email">Email <span>*</span></label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone">Phone <span>*</span></label>
+                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="seelct">What services are you interested in?</label>
+                                    <select class="form-control custom-select" id="service" name="service">
+                                        <option>Select One...</option>
+                                        <option>Childbirth Course</option>
+                                        <option>Labour Preparation</option>
+                                        <option>VBAC Preparation</option>
+                                        <option>Labour Assistance</option>
+                                    </select>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="seelct">Your pregnancy stage? (By week)</label>
+                                    <select class="form-control custom-select" id="stage" name="stage">
+                                        <option>Select One...</option>
+                                        <option>Stage one</option>
+                                        <option>Labour Preparation</option>
+                                        <option>VBAC Preparation</option>
+                                        <option>Labour Assistance</option>
+                                    </select>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <p>By providing your email address and phone number, we may use it to send you
+                                        messages and you agree to receive information about products and services from
+                                        Birthstory.
+                                    </p>
+                                    <!-- For more information, please read our <a
+                                            href="privacy.html">Terms</a> -->
+                                    <button type="submit" class="btn btn-primary">Send Enquiry</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <%- include('partials/footer') %>
+
+            <script>
+                document.getElementById('contactForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    console.log('Form submission attempted');
+
+                    // Validation function
+                    function validateField(id, errorMessage) {
+                        const field = document.getElementById(id);
+                        console.log(`Validating ${id}:`, field);
+                        if (!field) {
+                            console.error(`Element with id "${id}" not found`);
+                            return false;
+                        }
+                        const errorElement = field.nextElementSibling;
+                        if (!errorElement) {
+                            console.error(`No next sibling found for ${id}`);
+                            return false;
+                        }
+                        if (!field.value.trim()) {
+                            field.classList.add('is-invalid');
+                            errorElement.textContent = errorMessage;
+                            console.log(`${id} validation failed`);
+                            return false;
+                        } else {
+                            field.classList.remove('is-invalid');
+                            errorElement.textContent = '';
+                            console.log(`${id} validation passed`);
+                            return true;
+                        }
+                    }
+
+                    // Validate email format
+                    function validateEmail(email) {
+                        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        return re.test(email);
+                    }
+
+                    // Perform validation
+                    let isValid = true;
+
+                    isValid &= validateField('firstName', 'Please enter your first name.');
+                    isValid &= validateField('lastName', 'Please enter your last name.');
+
+                    const email = document.getElementById('email');
+                    if (email) {
+                        if (!validateEmail(email.value.trim())) {
+                            email.classList.add('is-invalid');
+                            const errorElement = email.nextElementSibling;
+                            if (errorElement) {
+                                errorElement.textContent = 'Please enter a valid email address.';
+                            }
+                            isValid = false;
+                            console.log('Email validation failed');
+                        } else {
+                            email.classList.remove('is-invalid');
+                            const errorElement = email.nextElementSibling;
+                            if (errorElement) {
+                                errorElement.textContent = '';
+                            }
+                            console.log('Email validation passed');
+                        }
+                    } else {
+                        console.error('Email field not found');
+                    }
+
+                    isValid &= validateField('phoneNumber', 'Please enter your phone number.');
+
+                    const service = document.getElementById('service');
+                    if (service) {
+                        if (service.value === 'Select One...') {
+                            service.classList.add('is-invalid');
+                            const errorElement = service.nextElementSibling;
+                            if (errorElement) {
+                                errorElement.textContent = 'Please select a service.';
+                            }
+                            isValid = false;
+                            console.log('Service validation failed');
+                        } else {
+                            service.classList.remove('is-invalid');
+                            const errorElement = service.nextElementSibling;
+                            if (errorElement) {
+                                errorElement.textContent = '';
+                            }
+                            console.log('Service validation passed');
+                        }
+                    } else {
+                        console.error('Service field not found');
+                    }
+
+                    const stage = document.getElementById('stage');
+                    if (stage) {
+                        if (stage.value === 'Select One...') {
+                            stage.classList.add('is-invalid');
+                            const errorElement = stage.nextElementSibling;
+                            if (errorElement) {
+                                errorElement.textContent = 'Please select your pregnancy stage.';
+                            }
+                            isValid = false;
+                            console.log('Stage validation failed');
+                        } else {
+                            stage.classList.remove('is-invalid');
+                            const errorElement = stage.nextElementSibling;
+                            if (errorElement) {
+                                errorElement.textContent = '';
+                            }
+                            console.log('Stage validation passed');
+                        }
+                    } else {
+                        console.error('Stage field not found');
+                    }
+
+                    console.log('Form is valid:', isValid);
+
+                    if (!isValid) {
+                        console.log('Validation failed, form not submitted');
+                        return;
+                    }
+
+                    console.log('Validation passed, proceeding with form submission');
+
+                    const formData = new FormData(this);
+                    const data = Object.fromEntries(formData);
+
+                    fetch('/api/form/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                console.log('Something went wrong!')
+                            }
+                        })
+                        .then(data => {
+                            window.location.href = '/enquiry-success';
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                        });
+                });
+            </script>

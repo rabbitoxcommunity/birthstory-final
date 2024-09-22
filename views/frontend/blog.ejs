@@ -1,0 +1,118 @@
+<%- include('partials/header') %>
+
+  <main id="main">
+    <section class="birthStory__mainBanner">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="innerPage__contents" data-aos="fade-up">
+              <h1 data-aos="fade-up" data-aos-delay="100">Your birth your way blog</h1>
+              <p data-aos="fade-up" data-aos-delay="200">
+                We’re here to guide you through your journey to becoming
+                mama,<br />
+                from the first trimester through the third stage of labor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ======= Blogs Section ======= -->
+    <section class="birthStory__blogs sectionPad pt-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="blog__img" data-aos="fade-up">
+              <img src="<%= featured.image %>" alt="" />
+            </div>
+          </div>
+          <div class="col-md-5 col-tab-6">
+            <div class="blog__contents" data-aos="fade-up">
+              <h2>
+                <%= featured.title %>
+              </h2>
+              <h6>
+                <%= featured.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %> | <%= featured.author %>
+              </h6>
+              <p>
+                <%= featured.short_description %>
+              </p>
+              <a href="/blog/<%= featured._id %>"><button class="btn btn-primary">Read More</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= More Blogs Section ======= -->
+    <section class="birthStory__blogs sectionPad bg-white">
+      <div class="container">
+
+
+
+
+        <div class="row">
+          <% if (blogs && blogs.length> 0) { %>
+            <% blogs.forEach((blog, index)=> { %>
+              <div class="col-md-4 blog-item <% if (index >= 3) { %> hidden-blog <% } %>">
+                <a href="/blog/<%= blog._id %>">
+                <div class="blogLists" data-aos="fade-up">
+                  <img src="<%= blog.image %>" alt="<%= blog.title %>" />
+                  <div class="blog__title">
+                      <h2>
+                        <%= blog.title %>
+                      </h2>
+                    <h6>
+                      <%= blog.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %> | <span>
+                          <%= blog.author %>
+                        </span>
+                    </h6>
+                  </div>
+                </div>
+                </a>
+              </div>
+              <% }); %>
+                <% } else { %>
+                  <p>No blogs found.</p>
+                  <% } %>
+        </div>
+
+
+
+        <% if (blogs && blogs.length > 3) { %>
+          <div class="col-md-12 mt-5">
+            <div class="text-center mt-3">
+              <button class="btn btn-primary m-auto" id="load-more">Load More</button>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </section>
+
+    <!-- ======= Service Start Section ======= -->
+    <section class="birthStory__startToday sectionPad">
+      <div class="container">
+        <div class="row">
+          <h2>Get started with Birthstory Birth Services, today.</h2>
+          <div class="appointment">
+            <a href="/enquiry"><button class="btn btn-secondary m-auto">Book Appoinment</button></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.getElementById('load-more').addEventListener('click', function () {
+        const hiddenBlogs = document.querySelectorAll('.hidden-blog');
+
+        hiddenBlogs.forEach(function (blog) {
+          blog.classList.remove('hidden-blog');
+        });
+
+        this.style.display = 'none';
+      });
+
+
+    </script>
+
+    <%- include('partials/footer') %>
