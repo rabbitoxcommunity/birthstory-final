@@ -855,7 +855,10 @@ section.birthStory__InnerTestimonials .testimonial-content {
 }
 
 section.birthStory__InnerTestimonials .icon img {
-  height: 65px;
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 100px;
 }
 
 section.birthStory__InnerTestimonials .icon {
@@ -918,15 +921,15 @@ section.birthStory__teams .team__slider .teamGrid img{
   object-fit: cover;
 }
 section.birthStory__teams .swiper-wrapper {
-  transform: translate3d(150px, 0px, 0px);
+  transform: translate3d(60px, 0px, 0px);
 }
 section.birthStory__teams .swiper-pointer-events {
-  transform: translate3d(150px, 0px, 0px);
+  transform: translate3d(60px, 0px, 0px);
   overflow: hidden;
 }
 
 section.birthStory__teams .swiper-button-next {
-  right: 204px;
+  right: 30px;
 }
 
 section.birthStory__teams .Teamheader {

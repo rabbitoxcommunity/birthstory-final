@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     speed: 600,
     loop: true,
     navDropdowns:true,
+    autoHeight:true,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false
