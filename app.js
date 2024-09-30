@@ -123,28 +123,41 @@ app.get('/blog/:id', async (req, res) => {
 
 
 // ADMIN PANEL
+app.get('/admin', (req, res) => {
+  res.render('admin/login');
+});
 app.get('/admin/login', (req, res) => {
   res.render('admin/login');
 });
 
-app.get('/dashboard',auth, async (req, res) => {
+app.get('/dashboard', auth, async (req, res) => {
   try {
     // Fetch the featured blog and the list of other blogs
-    const { list } = await blogController.getAllBlogs();
-    const appointments = await formController.getForm();
-    console.log(list);
+    const { list = [], featured = null } = await blogController.getAllBlogs();
+
+    // Filter out null or undefined blogs
+    const includeFeatured = [featured, ...list].filter(blog => blog !== null && blog !== undefined);
+
+    // Fetch appointments and ensure you're accessing the appointments array correctly
+    const result = await formController.getForm();
+    const appointments = result?.appointments || [];  // Access the appointments array from the returned object
+    
+    // Log the number of appointments
+    console.log(`Number of appointments: ${includeFeatured.length}`);
 
     res.render('admin/index', {
-      blogs: list,
-      appointments : appointments
+      blogs: includeFeatured,
+      appointments: appointments  // Pass the appointments array to the view
     });
 
   } catch (error) {
-    console.error('Error fetching blogs:', error);
-    res.status(500).render('error', { message: 'Error fetching blogs' });
+    console.error('Error fetching blogs or appointments:', error);
+    res.status(500).render('error', { message: 'Error fetching data' });
   }
-  // res.render('admin/index');
 });
+
+
+
 app.get('/add-blog',auth, (req, res) => {
   res.render('admin/add-blog');
 });
@@ -173,10 +186,10 @@ app.get('/blog/edit/:id', auth, async (req, res) => {
 
 app.get('/manage-blog',auth, async (req, res) => {
   try {
-    // Fetch the featured blog and the list of other blogs
-    const { list, featured } = await blogController.getAllBlogs();
-    const includeFeatured = [featured, ...list]; 
-    console.log(includeFeatured);
+    const { list = [], featured = null } = await blogController.getAllBlogs();
+
+    // Filter out null or undefined blogs
+    const includeFeatured = [featured, ...list].filter(blog => blog !== null && blog !== undefined);
 
     res.render('admin/manage-blog', {
       blogs: includeFeatured

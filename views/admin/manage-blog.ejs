@@ -78,20 +78,20 @@
                                                     <% blogs.forEach(blog=> { %>
                                                         <tr>
                                                             <td>
-                                                                <%= blog.title %>
+                                                                <%= blog?.title %>
                                                             </td>
-                                                            <td><img src="<%= blog.image %>" alt=""></td>
+                                                            <td><img src="<%= blog?.image %>" alt=""></td>
                                                             <td>
-                                                                <%= blog.short_description %>
+                                                                <%= blog?.short_description %>
                                                             </td>
                                                             <td class="action">
-                                                                <button data-id="<%= blog._id %>"
+                                                                <button data-id="<%= blog?._id %>"
                                                                     class="btn btn-sm btn-danger btn-action deleteButton">
                                                                     <img src="./assets-admin/img/delete.svg" alt="">
                                                                 </button>
-                                                                <button data-id="<%= blog._id %>"
+                                                                <button data-id="<%= blog?._id %>"
                                                                     class="btn btn-sm btn-primary btn-action editButton">
-                                                                    <a href="/blog/edit/<%= blog._id %>">
+                                                                    <a href="/blog/edit/<%= blog?._id %>">
                                                                         <img src="./assets-admin/img/edit.svg"
                                                                             style="height: 15px;" alt="">
                                                                     </a>

@@ -9,7 +9,7 @@
         width: 33.33333333%;
     }
     section.birthStory__banner {
-        min-height: fit-content;
+        min-height: 80vh;
         padding-top: 115px;
     }
 
