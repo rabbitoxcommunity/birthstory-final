@@ -1073,6 +1073,27 @@ section.birthStory__contact .contents h3 {
   border: none;
   padding: 12px;
 }
+.select2-container--bootstrap-5 .select2-selection{
+  background-color: #F9EDEE !important;
+}
+.select2-container--bootstrap-5 .select2-dropdown{
+  background-color: #F9EDEE !important;
+}
+.select2-container--bootstrap-5 .select2-dropdown .select2-search .select2-search__field:focus{
+  box-shadow: none !important;
+  outline: var(--color-primary);
+}
+.select2-container--bootstrap-5 .select2-dropdown .select2-results__options .select2-results__option.select2-results__option--selected, .select2-container--bootstrap-5 .select2-dropdown .select2-results__options .select2-results__option[aria-selected=true]:not(.select2-results__option--highlighted){
+  color: var(--color-primary) !important;
+  background-color: var(--color-secondary) !important;
+}
+.select2-container .select2-selection--single {
+  height: 45px !important;
+  /* background: #F9EDEE !important; */
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 10px !important;
+}
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
   text-decoration: none;
@@ -1376,4 +1397,11 @@ section.birthStory__thankyou .thank {
 section.birthStory__thankyou .thank h2 {
   font-weight: bold;
   margin-bottom: 15px;
+}
+
+/* DEFAULT */
+.select2-container--bootstrap-5.select2-container--focus .select2-selection, .select2-container--bootstrap-5.select2-container--open .select2-selection, .select2-container--bootstrap-5 .select2-dropdown{
+  box-shadow: none !important;
+  outline: none;
+  border-color: var(--color-secondary) !important;
 }

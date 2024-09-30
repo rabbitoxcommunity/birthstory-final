@@ -1,4 +1,6 @@
 <%- include('partials/header') %>
+<link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/select2-theme.min.css">
 
     <main id="main">
 
@@ -53,12 +55,48 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="seelct">Your pregnancy stage? (By week)</label>
-                                    <select class="form-control custom-select" id="stage" name="stage">
+                                    <select class="form-control form-select custom-select" data-select2-selector="default" id="stage" name="stage">
                                         <option>Select One...</option>
-                                        <option>Stage one</option>
-                                        <option>Labour Preparation</option>
-                                        <option>VBAC Preparation</option>
-                                        <option>Labour Assistance</option>
+                                        <option>Week 1</option>
+                                        <option>Week 2</option>
+                                        <option>Week 3</option>
+                                        <option>Week 4</option>
+                                        <option>Week 5</option>
+                                        <option>Week 6</option>
+                                        <option>Week 7</option>
+                                        <option>Week 8</option>
+                                        <option>Week 9</option>
+                                        <option>Week 10</option>
+                                        <option>Week 11</option>
+                                        <option>Week 12</option>
+                                        <option>Week 13</option>
+                                        <option>Week 14</option>
+                                        <option>Week 15</option>
+                                        <option>Week 16</option>
+                                        <option>Week 17</option>
+                                        <option>Week 18</option>
+                                        <option>Week 19</option>
+                                        <option>Week 20</option>
+                                        <option>Week 21</option>
+                                        <option>Week 22</option>
+                                        <option>Week 23</option>
+                                        <option>Week 24</option>
+                                        <option>Week 25</option>
+                                        <option>Week 26</option>
+                                        <option>Week 27</option>
+                                        <option>Week 28</option>
+                                        <option>Week 29</option>
+                                        <option>Week 30</option>
+                                        <option>Week 31</option>
+                                        <option>Week 32</option>
+                                        <option>Week 33</option>
+                                        <option>Week 34</option>
+                                        <option>Week 35</option>
+                                        <option>Week 36</option>
+                                        <option>Week 37</option>
+                                        <option>Week 38</option>
+                                        <option>Week 39</option>
+                                        <option>Week 40</option>
                                     </select>
                                     <div class="invalid-feedback"></div>
                                 </div>
@@ -79,6 +117,9 @@
         </section>
 
         <%- include('partials/footer') %>
+        <script src="assets/js/vendors.min.js"></script>
+        <script src="assets/js/select2.min.js"></script>
+        <script src="assets/js/select2-active.min.js"></script>
 
             <script>
                 document.getElementById('contactForm').addEventListener('submit', function (e) {
@@ -203,6 +244,7 @@
 
                     const formData = new FormData(this);
                     const data = Object.fromEntries(formData);
+                    console.log(data,'aslamdata')
 
                     fetch('/api/form/submit', {
                         method: 'POST',
