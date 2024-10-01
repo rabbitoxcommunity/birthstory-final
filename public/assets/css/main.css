@@ -15,6 +15,7 @@
   font-weight: 500;
   src: url('../fonts/AeonikRegular.otf') format("truetype");
 }
+
 @font-face {
   font-family: 'Birthstory';
   font-weight: 400;
@@ -52,10 +53,12 @@ a {
   text-decoration: none;
   font-weight: 500;
 }
-p{
+
+p {
   font-weight: 500;
   font-size: 18px !important;
 }
+
 a:hover {
   color: var(--color-primary);
   text-decoration: none;
@@ -197,29 +200,32 @@ h6 {
   border-color: none;
   background: var(--color-bg);
 }
+
 header.header.fixed-top.d-flex.align-items-center.sticked .main__logo {
   display: none;
 }
+
 header.header.fixed-top.d-flex.align-items-center.sticked .logo__icon {
   display: block;
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s; /* Firefox < 16 */
-   -ms-animation: fadein 2s; /* Internet Explorer */
-    -o-animation: fadein 2s; /* Opera < 12.1 */
-       animation: fadein 2s;
+  -webkit-animation: fadein 2s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 2s;
+  /* Internet Explorer */
+  -o-animation: fadein 2s;
+  /* Opera < 12.1 */
+  animation: fadein 2s;
 }
 
 .header .logo img.logo__icon {
   display: none;
 }
+
 .header .logo img {
   max-height: 40px;
   margin-right: 6px;
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s; /* Firefox < 16 */
-   -ms-animation: fadein 2s; /* Internet Explorer */
-    -o-animation: fadein 2s; /* Opera < 12.1 */
-       animation: fadein 2s;
+
 }
 
 .header .logo h1 {
@@ -244,34 +250,61 @@ header.header.fixed-top.d-flex.align-items-center.sticked .logo__icon {
   border-radius: 50px;
   transition: 0.3s;
 }
+
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* Firefox < 16 */
 @-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* Opera < 12.1 */
 @-o-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
+
 .header .btn-book-a-table:hover,
 .header .btn-book-a-table:focus:hover {
   color: #fff;
@@ -564,22 +597,22 @@ section.birthStory__banner {
 }
 
 section.birthStory__banner .mainBanner__contents {
-    text-align: center;
-    margin: 0 auto;
+  text-align: center;
+  margin: 0 auto;
 }
 
 section.birthStory__banner .mainBanner__contents h1 {
-    font-weight: 600;
-    color: #2c2842;
-    text-transform: capitalize;
-    font-size: 60px;
+  font-weight: 600;
+  color: #2c2842;
+  text-transform: capitalize;
+  font-size: 60px;
 }
 
 section.birthStory__banner .mainBanner__contents p {
-    width: 71%;
-    margin: 0 auto;
-    font-size: 20px;
-    margin-bottom: 30px;
+  width: 71%;
+  margin: 0 auto;
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 
 
@@ -604,7 +637,9 @@ section.birthStory__banner .mainBanner__contents p {
   border-radius: 40px;
 }
 
-.birthStory__banner .birthStory__video {margin-top: 60px;}
+.birthStory__banner .birthStory__video {
+  margin-top: 60px;
+}
 
 /*--------------------------------------------------------------
 # About Us
@@ -643,7 +678,7 @@ section.birthStory__about .shortContent h3 {
 
 section.birthStory__about .shortContent p {
   margin: 0;
-  font-size: 15px !important; 
+  font-size: 15px !important;
   font-weight: 500;
 }
 
@@ -654,9 +689,10 @@ section.birthStory__about .shortContent {
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
-section.birthStory__Services{
+section.birthStory__Services {
   background-color: var(--color-secondary);
 }
+
 section.birthStory__Services .title h3 {
   font-size: 24px;
   font-weight: 600;
@@ -665,12 +701,16 @@ section.birthStory__Services .title h3 {
 section.birthStory__Services .title {
   margin-bottom: 100px;
 }
+
 .services__contents h6 {
   font-size: 16px;
   margin: 0;
 }
 
-section.birthStory__Services .services__contents h2 {margin: 0;padding: 10px 0;}
+section.birthStory__Services .services__contents h2 {
+  margin: 0;
+  padding: 10px 0;
+}
 
 section.birthStory__Services .services__contents p {
   width: 80%;
@@ -691,6 +731,7 @@ section.birthStory__Services .services__contents .readmore a.learnMore {
   font-size: 14px;
   margin-left: 30px;
 }
+
 section.birthStory__Services .service__image img {
   width: 100%;
   height: 470px;
@@ -702,7 +743,7 @@ section.birthStory__Services .services__contents.padLeft {
   padding-left: 70px;
 }
 
-.all-services{
+.all-services {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -743,6 +784,7 @@ section.birthStory__testimonials .testimonial-content h3 {
 section.birthStory__startToday {
   background: var(--color-primary);
 }
+
 section.birthStory__startToday h2 {
   color: #fff;
   text-align: center;
@@ -751,7 +793,7 @@ section.birthStory__startToday h2 {
   margin: 0 auto;
   padding-bottom: 40px;
   font-size: 45px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 
@@ -794,9 +836,11 @@ section.birthStory__footer .footer__social {
   padding: 20px 0;
   padding-top: 70px;
 }
-section.birthStory__footer  .footer__logo img {
+
+section.birthStory__footer .footer__logo img {
   height: 40px;
 }
+
 section.birthStory__footer {
   padding-bottom: 0;
 }
@@ -846,6 +890,7 @@ section.birthStory__servicesPage h1 {
   width: 80%;
   margin: 0 auto;
 }
+
 section.birthStory__InnerTestimonials .testimonial-content {
   background: var(--color-secondary);
   border-radius: 30px;
@@ -882,7 +927,9 @@ section.birthStory__mainBanner {
   padding-top: 50px;
 }
 
-section.birthStory__mainBanner .innerPage__contents {text-align: center;}
+section.birthStory__mainBanner .innerPage__contents {
+  text-align: center;
+}
 
 section.birthStory__mainBanner .innerPage__contents h1 {
   font-weight: 600;
@@ -893,9 +940,11 @@ section.birthStory__mainBanner .innerPage__contents h1 {
 section.birthStory__mainBanner .innerPage__contents p {
   font-size: 18px;
 }
-section.birthStory__story{
+
+section.birthStory__story {
   background-color: var(--color-secondary);
 }
+
 section.birthStory__story .contents h2 {
   font-size: 43px;
   padding-left: 30px;
@@ -913,16 +962,18 @@ section.birthStory__story .contents h6 {
 # TEAMS PAGE
 --------------------------------------------------------------*/
 
-section.birthStory__teams .team__slider .teamGrid img{
+section.birthStory__teams .team__slider .teamGrid img {
   width: 100%;
   border-radius: 38px;
   /* height: 477px; */
   height: 477px;
   object-fit: cover;
 }
+
 section.birthStory__teams .swiper-wrapper {
   transform: translate3d(60px, 0px, 0px);
 }
+
 section.birthStory__teams .swiper-pointer-events {
   transform: translate3d(60px, 0px, 0px);
   overflow: hidden;
@@ -966,12 +1017,12 @@ section.birthStory__blogs .blog__img img {
 
 section.birthStory__blogs .blog__contents h2 {
   font-size: 42px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 20px 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 20px 0;
 }
 
 section.birthStory__blogs .blog__contents h6 {
@@ -992,13 +1043,15 @@ section.birthStory__blogs .blog__contents p {
 section.birthStory__blogs .blog__contents {
   padding-left: 40px;
 }
-section.birthStory__blogs .blogLists{
+
+section.birthStory__blogs .blogLists {
   padding: 10px 10px 16px;
-    transition: transform .3s ease;
-    will-change: transform;
-    cursor: pointer;
+  transition: transform .3s ease;
+  will-change: transform;
+  cursor: pointer;
 }
-section.birthStory__blogs .blogLists:hover{
+
+section.birthStory__blogs .blogLists:hover {
   transform: translateY(-3px);
 }
 
@@ -1013,20 +1066,22 @@ section.birthStory__blogs .blogLists img {
 section.birthStory__blogs .blog__title {
   margin-top: 30px;
 }
+
 section.birthStory__blogs .blog__title h6 span {
   color: #6C50A5;
   text-transform: capitalize;
 }
+
 section.birthStory__blogs .blog__title h2 {
   font-size: 24px;
   margin-bottom: 20px;
   max-width: 100%;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /*--------------------------------------------------------------
@@ -1035,9 +1090,37 @@ section.birthStory__blogs .blog__title h2 {
 .blog__img.blog__details img {
   height: 600px !important;
 }
+section.blog__details h1{
+  font-size: 36px !important;
+}
+section.blog__details h2{
+  font-size: 30px !important;
+}
+section.blog__details h3{
+  font-size: 24px !important;
+}
+section.blog__details h4{
+  font-size: 18px !important;
+}
+section.blog__details h5{
+  font-size: 14px !important;
+}
+section.blog__details h6{
+  font-size: 14px !important;
+}
+section.blog__details h1,
+section.blog__details h2,
+section.blog__details h3,
+section.blog__details h4,
+section.blog__details h5,
+section.blog__details h6 {
+  font-family: var(--font-primary) !important;
+}
+
 section.blog__details p {
   font-size: 15px;
   line-height: 1.9;
+  font-family: var(--font-primary) !important;
 }
 
 section.blog__details h4 {
@@ -1058,7 +1141,9 @@ section.birthStory__contact .contents {
   text-align: center;
 }
 
-section.birthStory__contact .contents h6 {margin-bottom: 8px;}
+section.birthStory__contact .contents h6 {
+  margin-bottom: 8px;
+}
 
 section.birthStory__contact .contents h3 {
   font-size: 33px;
@@ -1073,20 +1158,26 @@ section.birthStory__contact .contents h3 {
   border: none;
   padding: 12px;
 }
-.select2-container--bootstrap-5 .select2-selection{
+
+.select2-container--bootstrap-5 .select2-selection {
   background-color: #F9EDEE !important;
 }
-.select2-container--bootstrap-5 .select2-dropdown{
+
+.select2-container--bootstrap-5 .select2-dropdown {
   background-color: #F9EDEE !important;
 }
-.select2-container--bootstrap-5 .select2-dropdown .select2-search .select2-search__field:focus{
+
+.select2-container--bootstrap-5 .select2-dropdown .select2-search .select2-search__field:focus {
   box-shadow: none !important;
   outline: var(--color-primary);
 }
-.select2-container--bootstrap-5 .select2-dropdown .select2-results__options .select2-results__option.select2-results__option--selected, .select2-container--bootstrap-5 .select2-dropdown .select2-results__options .select2-results__option[aria-selected=true]:not(.select2-results__option--highlighted){
+
+.select2-container--bootstrap-5 .select2-dropdown .select2-results__options .select2-results__option.select2-results__option--selected,
+.select2-container--bootstrap-5 .select2-dropdown .select2-results__options .select2-results__option[aria-selected=true]:not(.select2-results__option--highlighted) {
   color: var(--color-primary) !important;
   background-color: var(--color-secondary) !important;
 }
+
 .select2-container .select2-selection--single {
   height: 45px !important;
   /* background: #F9EDEE !important; */
@@ -1094,8 +1185,9 @@ section.birthStory__contact .contents h3 {
   border-radius: 10px !important;
   padding: 10px !important;
 }
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus {
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
   text-decoration: none;
   color: #ffffff;
   background-color: #f3969a;
@@ -1257,9 +1349,10 @@ section.birthStory__contact .contents h3 {
 /*--------------------------------------------------------------
 # PRIVACY PAGE
 --------------------------------------------------------------*/
-section.privacy{
+section.privacy {
   min-height: 83vh;
 }
+
 .privacy__policy h2 {
   font-size: 38px;
   margin: 0;
@@ -1294,7 +1387,7 @@ section.birthStory__serviceDetails .service__image img {
   object-fit: contain;
 }
 
-section.birthStory__serviceDetails  .contents h2 {
+section.birthStory__serviceDetails .contents h2 {
   font-size: 36px;
   margin-bottom: 25px;
 }
@@ -1317,6 +1410,7 @@ section.birthStory__serviceDetails .focus {
 section.birthStory__serviceDetails .focus h2 {
   font-size: 34px;
 }
+
 .Detailed__privacy__policy {
   text-align: center;
   width: 68%;
@@ -1333,7 +1427,12 @@ section.birthStory__serviceDetails .focus h2 {
   margin: 0;
 }
 
-.section__faq.serviceDetailsFAQ {background: #F9ECED;border-radius: 30px;padding: 60px 80px;margin: 0 auto;}
+.section__faq.serviceDetailsFAQ {
+  background: #F9ECED;
+  border-radius: 30px;
+  padding: 60px 80px;
+  margin: 0 auto;
+}
 
 .section__faq.serviceDetailsFAQ .accordion-list li {
   border: none;
@@ -1346,6 +1445,7 @@ section.birthStory__serviceDetails .focus h2 {
   padding-bottom: 47px;
   font-size: 40px;
 }
+
 section.birthStory__serviceDetails .focusGrid {
   display: flex;
   width: 40%;
@@ -1360,7 +1460,7 @@ section.birthStory__serviceDetails .focusGrid i {
   font-weight: bold;
 }
 
-section.birthStory__serviceDetails  .focusGrid p {
+section.birthStory__serviceDetails .focusGrid p {
   margin: 0;
 }
 
@@ -1386,6 +1486,7 @@ section.birthStory__serviceDetails .cousreList p {
 section.birthStory__thankyou {
   padding-top: 0;
 }
+
 section.birthStory__thankyou .thank {
   background: #2C2842;
   color: #fff;
@@ -1400,7 +1501,9 @@ section.birthStory__thankyou .thank h2 {
 }
 
 /* DEFAULT */
-.select2-container--bootstrap-5.select2-container--focus .select2-selection, .select2-container--bootstrap-5.select2-container--open .select2-selection, .select2-container--bootstrap-5 .select2-dropdown{
+.select2-container--bootstrap-5.select2-container--focus .select2-selection,
+.select2-container--bootstrap-5.select2-container--open .select2-selection,
+.select2-container--bootstrap-5 .select2-dropdown {
   box-shadow: none !important;
   outline: none;
   border-color: var(--color-secondary) !important;

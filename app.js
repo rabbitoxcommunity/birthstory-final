@@ -140,14 +140,18 @@ app.get('/dashboard', auth, async (req, res) => {
 
     // Fetch appointments and ensure you're accessing the appointments array correctly
     const result = await formController.getForm();
+
+    // Log the full result to inspect the structure
+    console.log('Form result:', result);
+
     const appointments = result?.appointments || [];  // Access the appointments array from the returned object
     
-    // Log the number of appointments
-    console.log(`Number of appointments: ${includeFeatured.length}`);
+    // Log the appointments array
+    console.log(`Appointments array:`, appointments);
 
     res.render('admin/index', {
       blogs: includeFeatured,
-      appointments: appointments  // Pass the appointments array to the view
+      appointments: result  // Pass the appointments array to the view
     });
 
   } catch (error) {
@@ -155,6 +159,7 @@ app.get('/dashboard', auth, async (req, res) => {
     res.status(500).render('error', { message: 'Error fetching data' });
   }
 });
+
 
 
 

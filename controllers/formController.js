@@ -15,17 +15,18 @@ exports.submitForm = async (req, res) => {
 
 exports.getForm = async () => {
   try {
-    // Fetch blogs sorted by creation date (newest first)
-    const appointments = await Form.find().sort({ date: -1 });
+    // Fetch appointments sorted by creation date (newest first)
+    const appointments = await Form.find().sort({ createdAt: -1 });
 
     if (appointments.length === 0) {
-      return { appointments: [] }; // No blogs found
+      return []; // Return an empty array if no appointments found
     }
-    console.log(appointments)
-    return appointments
+
+    console.log(appointments);
+    return appointments; // The most recently added appointment will be first in this array
    
   } catch (error) {
-    console.error('Error fetching blogs:', error);
+    console.error('Error fetching appointments:', error);
     throw error; // Rethrow the error to be handled by the calling function
   }
 };

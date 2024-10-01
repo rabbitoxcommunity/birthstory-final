@@ -47,7 +47,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Total Appointments</h5>
                                         <div class="savings-stats">
-                                            <h5><%= appointments?.length %></h5>
+                                            <h5><%= appointments?.length == undefined ? 0 : appointments?.length %></h5>
                                             <span>Total Appointments</span>
                                         </div>
                                     </div>

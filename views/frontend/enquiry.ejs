@@ -97,8 +97,10 @@
                                         <option>Week 38</option>
                                         <option>Week 39</option>
                                         <option>Week 40</option>
+                                        <option>Week 41</option>
+                                        <option>Week 42</option>
                                     </select>
-                                    <div class="invalid-feedback"></div>
+                                    <div class="invalid-feedback">Please Select Your pregnancy stage</div>
                                 </div>
                                 <div class="col-md-12">
                                     <p>By providing your email address and phone number, we may use it to send you
@@ -215,10 +217,10 @@
                     if (stage) {
                         if (stage.value === 'Select One...') {
                             stage.classList.add('is-invalid');
-                            const errorElement = stage.nextElementSibling;
-                            if (errorElement) {
-                                errorElement.textContent = 'Please select your pregnancy stage.';
-                            }
+                            // const errorElement = stage.nextElementSibling;
+                            // if (errorElement) {
+                            //     errorElement.textContent = 'Please select your pregnancy stage.';
+                            // }
                             isValid = false;
                             console.log('Stage validation failed');
                         } else {
