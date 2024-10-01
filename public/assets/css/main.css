@@ -225,6 +225,9 @@ header.header.fixed-top.d-flex.align-items-center.sticked .logo__icon {
 .header .logo img {
   max-height: 40px;
   margin-right: 6px;
+  width: 180px;
+  object-fit: contain;
+  object-position: left;
 
 }
 
